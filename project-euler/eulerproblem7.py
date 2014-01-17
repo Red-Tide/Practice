@@ -25,4 +25,4 @@ while len(primes) < 10001:
     if test != False:
         primes.append(test)
     testNum = testNum +1
-print(primes[-1], len(primes))
+print(primes[-1])

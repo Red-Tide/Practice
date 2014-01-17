@@ -1,20 +1,30 @@
 #!/usr/bin/python
 
-from numpy import *
+'''Below you will see code that will solve kx(x+y)=500 a factored form of ka +
+kb + kc = 1000 (with euclid's formula for generating pythagorean primitives
+substituted in a,b,c) It then subsequently provides the solution for project euler
+problem 9.'''
 
-generators = array([2,1])
+def triplet_test(k,x,y):
+    if k*x*(x+y) == 500:
+        return True
+    else:
+        return False
 
-def nextPyPrimitive(generators):
-    a = generators[0]**2 - generators[1]**2
-    b = 2 * generators[0] * generators[1]
-    c =  generators[0]**2 + generators[1]**2
-    return array([a,b,c])
 
-y = 0
+k = 1
+x = 2
+y = 1
 
-while y < 1000: 
-    x = nextPyPrimitive(generators)
-    y = sum(x)
-    print(x)
-    print(sum(x))
-    generators[1] = generators[1]+1
+while triplet_test(k,x,y) == False:
+    if k*x*(x+y) > 500:
+        if k == 1:
+            y = y + 1
+            x = y + 1
+        else:
+            k = 1
+            x = x + 1
+    else:
+        k = k + 1
+
+print((k*(x**2-y**2))*(k*(2*x*y))*(k*(x**2+y**2)))
