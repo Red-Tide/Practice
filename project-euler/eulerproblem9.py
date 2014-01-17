@@ -3,7 +3,9 @@
 '''Below you will see code that will solve kx(x+y)=500 a factored form of ka +
 kb + kc = 1000 (with euclid's formula for generating pythagorean primitives
 substituted in a,b,c) It then subsequently provides the solution for project euler
-problem 9.'''
+problem 9. Special thanks to my best bud Thomas for being insightful enough to
+suggest that solving this problem by factoring it algebraically first would be
+more efficient.'''
 
 def triplet_test(k,x,y):
     if k*x*(x+y) == 500:
